@@ -1,0 +1,39 @@
+# Site settings
+# -------------
+baseurl     : "" # the subpath of your site, e.g. /blog/
+colour      : primary
+language    : nl
+host        : 127.0.0.1
+port        : 4000
+
+# SEO
+# ---
+title        : &title NMDAD-I
+description  : "Beegreen app"
+author       : Brent De Roeck & Adriaan Glibert
+tracking_id  : ""
+# url        :
+# image      :
+
+# Build settings
+# --------------
+gems:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+sass:
+  style: compressed
+exclude:
+  - Gemfile
+  - LICENSE
+  - README.md

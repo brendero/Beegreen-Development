@@ -23,7 +23,6 @@ gems:
   - jekyll-mentions
   - jekyll-paginate
   - jekyll-redirect-from
-  - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
 highlighter: rouge

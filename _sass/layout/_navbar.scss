@@ -1,0 +1,78 @@
+/*Navbar and footer CSS*/
+
+.navbar {
+    background-color:  $green  ;
+    z-index: 999999;
+}
+
+.navbar-list {
+    list-style-type: none;
+    font-family: $raleway;
+    font-size: $navbar-text-size;
+    
+    float: right;
+    margin: 0px;
+    padding: 20px;
+  
+}
+
+
+.navbar-list li {
+    display: inline;
+    color: white;
+}
+
+.navbar-list li a:hover {
+    text-decoration: none;
+    color: $yellow;
+}
+
+
+
+.glyphicon{
+    padding: 0 20px;
+    margin: 0px;
+    font-size: $glyphicon-text-size;
+    color: white;
+}
+
+#weatherString {
+    font-family: $raleway;
+    font-weight: bold;
+    font-size: $navbar-text-size;
+    
+    float: right;
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+.navbar-items-text {
+    color: $white;
+}
+
+.navbar-logo {
+    display: inline-block;
+    position: relative;
+    padding: 9px 0;
+    margin-left: 20px;
+    
+    height: auto;
+    width: 90px;
+}
+
+    /*Navbar Responsive*/
+    @media (max-width: 700px) 
+    {
+        .navbar-list {
+            display: none;
+        }
+        
+    }
+
+    @media (min-width: 701px){
+        footer {
+            display: none;
+        }
+    }
+

@@ -1,0 +1,43 @@
+.main-container {
+    position: absolute;
+    top: 5em;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+   position: absolute;
+   display: block;
+}
+
+.login-logo-container {
+    position: relative;
+    top: 100px;
+}
+
+.login-buttons-container {
+    position: relative;
+    top: 150px;
+    padding: 20px; 
+    padding-bottom: 50px;
+}
+
+
+.fb-login,
+.google-login {
+    padding: 15px 20px;
+    margin: 15px 0px;
+    
+    background-color: $blue;
+    font-family: $bitter;
+    font-weight: bold;
+    color: $white;
+}
+
+.google-login {
+    background-color: $red;
+}
+
+.sign-up {
+    font-family: $raleway;
+}

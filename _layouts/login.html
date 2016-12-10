@@ -10,18 +10,18 @@
     <p >You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
 
-
-    <!-- HEADER -->
 <nav>
     <div class="container-fluid navbar navbar-fixed-top">
-        <a href="profile-page.html"><span><img class="navbar-logo" src="images/Logo-Wit.png"></span></a>
+        <a href="#"><span><img class="navbar-logo" src="images/Logo-Wit.png"></span></a>
         
 
         <ul class="navbar-list">
-          <li><a href="friends-feed.html"><span class="glyphicon glyphicon-tree-conifer"></span><span class="navbar-items-text">Friends</span></a></li>
-          <li><a href="discover-page.html"><span class="glyphicon glyphicon-leaf"></span><span class="navbar-items-text">Discover</span></a></li>
-          <li><a href="profile-page.html"><span class="glyphicon glyphicon-user"></span><span class="navbar-items-text">Profile</span></a></li>
-          <li><span id="weatherString"></span><span class="navbar-items-text"></span></li>
+            <li><span id="weatherString"></span></li>
+<!--
+          <li><a href="#friends"><span class="glyphicon glyphicon-tree-conifer"></span><span class="navbar-items-text">Friends</span></a></li>
+          <li><a href="#discover"><span class="glyphicon glyphicon-leaf"></span><span class="navbar-items-text">Discover</span></a></li>
+          <li><a href="#profile"><span class="glyphicon glyphicon-user"></span><span class="navbar-items-text">Profile</span></a></li>
+-->
 <!--
         <div>
           <li>
@@ -45,17 +45,22 @@
     {{ content }} 
 </main>
 
+<!--footer-->
 <footer>
-    <div class="container-fluid navbar navbar-fixed-bottom">
+<!--
+       <div class="container-fluid navbar navbar-fixed-bottom">
         <ul class="footer-list">
          <div >
-          <li><a href="friends-feed.html"><span class="glyphicon icon-footer glyphicon-tree-conifer"></span></a></li>
-          <li><a href="discover-page.html"><span class="glyphicon icon-footer glyphicon-leaf"></span></a></li>
-          <li><a href="profile-page.html"><span class="glyphicon icon-footer glyphicon-user"></span></a></li>
+          <li><a href="#home"><span class="glyphicon icon-footer glyphicon-tree-conifer"></span></a></li>
+          <li><a href="#news"><span class="glyphicon icon-footer glyphicon-leaf"></span></a></li>
+          <li><a href="#contact"><span class="glyphicon icon-footer glyphicon-user"></span></a></li>
           </div>
         </ul>
     </div>
+-->
+
 </footer>    
+    
     {% include components/scripts.html %}
 
 </body>

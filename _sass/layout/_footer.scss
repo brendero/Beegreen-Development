@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer-list{
+    list-style-type: none;
+    font-family: $raleway;
+    font-size: $navbar-text-size;
+    
+    float: right;
+    margin: 0px;
+    padding: 20px;
+  
+}
+
+.footer-list {
+    float: none;
+    margin: 0 auto;
+}
+
+
+.footer-list li {
+    display: inline;
+    color: $white;
+}
+
+.icon-footer {
+    padding: 0 1.6666666%;
+    width: 30%;
+    text-align: center;
+}

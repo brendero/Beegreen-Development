@@ -1,0 +1,60 @@
+.tree-decoration {
+    height: 500px;
+    position: absolute;
+    left: 0;
+    z-index: 9000;
+    width: 100%;
+}
+
+.green-arch {
+   height: 100%;
+    width: 100%;
+}
+
+.tree-container {
+    position: absolute;
+    top: 450px;
+    width: 95%;
+    height: 50%;
+    z-index: 1;
+    
+    margin-bottom: 50px;
+    
+}
+
+/*CONTENT CODE*/
+
+
+.inner-container {
+  width: 80%;
+  height: auto;
+  margin: auto; 
+}
+  
+
+.inner-container a {
+  color: $black; }
+
+.inner-container a:hover {
+  color: $yellow; }
+
+
+
+
+
+/*Profile info*/
+.profile-card-container-profile {
+  position: absolute;
+  top: 80px;
+  padding-left: 35px;
+  height: 250px;
+  color: white;
+  padding-bottom: 20px;
+  z-index: 9500;
+  }
+
+
+/*Progress-bar*/
+.progress-bar {
+    z-index: 9999999999;
+}

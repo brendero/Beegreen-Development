@@ -1,0 +1,44 @@
+.profile-card-container {
+    background-color: $yellow; 
+    position: fixed;
+    top: 72px;
+    margin-top: 2em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    padding-left: 20px;
+    height: auto;
+    width: 23%;
+    
+    
+    color: $white;
+    padding-bottom: 20px;
+}
+
+
+.feed-container {
+    position: relative;
+    top: 20px;
+    height: 100%;
+    width: 350px;
+    margin: auto;
+    
+}
+
+
+.feed-container a {
+    color: black;
+}
+
+.feed-container a:hover {
+    color: $yellow;
+    text-decoration: none;
+}
+
+
+    /*Profile Card Responsive*/
+
+    @media (max-width: 701px){
+        .profile-card-container {
+            display: none;
+        }
+    }

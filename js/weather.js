@@ -33,7 +33,6 @@
                         
                         var query = data.query;
                         
-                        console.log(query);
                         
                         var results = query.results;
                         var channel = results.channel;
@@ -48,9 +47,7 @@
                         
                         //Gaan de string declareren.
                         temperatuurString = temp;
-                        
-                        console.log('Temperatuur is ' + temperatuurString + '°C in Gent');
-                        
+                                                
                         //Voegen de string toe aan de HTML pagina. 1. Selecteer de span 2. Voeg textContent toe aan de span.
                         var span = document.getElementById('weatherString');
                         span.textContent = temperatuurString + '°C' ; 
@@ -79,7 +76,6 @@
     
     var weerTemp = new WeatherString(1, document.querySelector('#weatherString'));
     weerTemp.loadData();
-    console.log(weerTemp.toString());
     
     
 })();

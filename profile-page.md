@@ -5,7 +5,6 @@ layout: default
 <!-- Tree decoration -->
 
 <div class="tree-decoration">
-    <img alt="tree decoration" src="images/green-arch.png" class="green-arch">
 </div>
 
 
@@ -21,22 +20,34 @@ layout: default
         <p class="raleway">Trees planted: <span></span></p>
         <p class="raleway">Ranking: <span></span></p>
     </div>
+    
+<div class="progressbar">
+    <div class="progressbar-indicator"></div>
 </div>
+
 </div>
 
 
-<div class="row bs-wizard progress-bar" style="border-bottom:0;">
 
 </div>
+
+
 
 
 <!-- MAIN -->
 
 <div class="tree-container">
+
+<img class="cloud" src="images/Wolk.png">
+
+
 <div class="info-container col-xs-12">
 
 
+
 <div class="inner-container">
+
+
 
 <a href="more-info.html">
 <div class="col-xs-12 col-sm-6 discover-items">

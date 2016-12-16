@@ -44,12 +44,12 @@ ready(function() {
                 // Update a lecturer
                 var id = this._applicationDbContext.getLecturers()[0].Id;
                 var lecturer = this._applicationDbContext.getLecturerById(id);
+                this.updateUiusersList();
                 if(lecturer != null) {
                     lecturer.FirstName = 'Olivia';
                     var result = this._applicationDbContext.updateLecturer(lecturer);
                     console.log(result);
                 }
-                this.updateUiusersList();
             }
         },
             
@@ -60,24 +60,22 @@ ready(function() {
         if(lecturers != null) {
 
           var strHTML = '', lecturer = null;
-          for(var i=0; i < lecturers.length;i++) {
+          for(var i=0; i < 30;i++) {
             lecturer = lecturers[i];
-            strHTML += '<a href="profile-page.html">';
-            strHTML += '<div class="items-container>';
+            strHTML += '<a>';
+            strHTML += '<div class="items-container">';
             strHTML += '<div class="imagecontainer">';
-            strHTML += '<img class="square-picture" src="' + lecturer.Picture +'">'
-            strHTMl += '</div>';
+            strHTML += '<img class="square-picture" src="'+ lecturer.Picture +'">';
+            strHTML += '</div>';
             strHTML += '<div class="text-content">';
-            strHTML += '<h4 class"bitter friend-name">'+ lecturer.FirstName + lecturer.SurName +'</h4>';
-            strHTML += '<span class="raleway">'+ "Walked in zuidpark" +'</span><br>';
-            strHTML += '<span class="raleway">'+ "Recieved 4 bees" +'</span>';
+            strHTML += '<h4 class="bitter friend-name">'+ lecturer.FirstName+ " " +lecturer.SurName+'</h4>';
+            strHTML += '<span class="raleway">'+ "Walked in Zuidpark"+'</span><br>'
+            strHTML += '<span class="raleway">'+ "Recieved 4 Bees"+'</span>'
             strHTML += '</div>';
             strHTML += '</div>';
             strHTML += '</a>';
-
           }
           this._listUser.innerHTML = strHTML;
-          componentHandler.upgradeAllRegistered(); // Update Material Design Event Listeners for all new elements into the DOM
         }
 
       }

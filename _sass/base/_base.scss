@@ -38,6 +38,18 @@ a {
   }
 }
 
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+p {
+    font-family: $raleway;
+    font-size: $default-text-size;
+    line-height: $line-height-paragraph;
+
+}
+
 //Font classes
 
 .bitter {

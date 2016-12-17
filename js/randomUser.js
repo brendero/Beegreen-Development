@@ -8,9 +8,17 @@ ready(function() {
 
  var App = {
         "init": function() {
+            this._unitTesting = false;
+            this.URLRANDOMUSERME = 'http://api.randomuser.me/?results=100&callback=json_callback';// Cache the url with random users in variable URLRANDOMUSERME
             this._applicationDbContext = ApplicationDbContext; // Reference to the ApplicationDbContext object
             this._applicationDbContext.init('Beegreen.users'); // Initialize the ApplicationDbContext object via the methode init. Do not forget the connection string as a parametervalue of this function
             this._listUser = document.querySelector('.feed-container');
+            this.unitTests();
+        },
+            "unitTests": function() {
+            
+            var self = this; // Closure
+
              if(this._applicationDbContext.getLecturers() == null) {
 
                 // Load JSON from corresponding RandomUserMe API with certain URL
@@ -26,14 +34,11 @@ ready(function() {
                             lecturer.UserName = user.login.username;
                             lecturer.PassWord = user.login.password;
                             lecturer.Email = user.email;
-                            lecturer.Picture = user.picture.thumbnail;
-                            switch(user.gender) {
-                                case 'male': lecturer.Gender = Genders.MALE;break;
-                                case 'female': lecturer.Gender = Genders.FEMALE;break;
-                                default: lecturer.Gender = Genders.NOTKNOWN;break;
-                            }
+                            lecturer.Picture = user.picture.large;
+                            
                             var lecturerAdded = self._applicationDbContext.addLecturer(lecturer);
                         }
+                        updateUiusersList();
                     },
                     function(status) {
                         console.log(status);
@@ -77,9 +82,8 @@ ready(function() {
           }
           this._listUser.innerHTML = strHTML;
         }
-
-      }
-    }
+     }
+    };
 
 App.init();
 });

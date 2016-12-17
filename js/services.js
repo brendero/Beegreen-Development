@@ -9,15 +9,15 @@ var ApplicationDbContext = {
         this._strConnection = strConnection; // Connection string to the key in the localstorage
         this._dbData = {
             "info": {
-                "title": "Beegreen",
-                "description": "Making the world greener one step at a time",
+                "title": "Lecturerama",
+                "description": "App for students: See if a lecturer is present",
                 "version": "1.0.",
-                "modified": "2016-12-13",
-                "author": "AHS - GDM - MMP Adriaan Glibert & Brent De Roeck"
+                "modified": "2016-11-17",
+                "author": "AHS - GDM - MMP"
             },
             "activeuser": null,
             "lecturers": [],
-            "Activities": [],
+            "activities": [],
             "timetable": [],
             "settings": []
         }; // JSON-string: The data as value of the previous connection string (key in the localstorage)

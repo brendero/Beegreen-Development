@@ -16,15 +16,14 @@ ready(function() {
             this._userCard = document.querySelector('.profile-card');
             this._userManager = UserManager;
             this._userManager.init(this._applicationDbContext);
-            this.updateUiusersList();
-
 
             this._frmLogin = document.querySelector("#frm-login");
             this.registerEventListeners();
-            this.updateActiveUser();
 
-            
-            this.unitTests();
+            if(this._applicationDbContext._dbData._activeUser !== null) {
+                this.updateActiveUser();
+                this.updateUiusersList();
+            }
         },
              "registerEventListeners": function() {
 
@@ -45,6 +44,7 @@ ready(function() {
                     } else {
                         self._activeUser = result; // User is Logged in
                         self.unitTests();
+                        window.location("profile-page.html");
                     }
                     
                     return false;

@@ -103,10 +103,7 @@
                             }    
          
                             var JSONReadyObjects = JSON.stringify(arrayOfObjects);
-                        localStorage.setItem('objects', JSONReadyObjects);
-                         console.log(JSON.parse(localStorage['objects']));  
-                    
-                    
+                            localStorage.setItem('objects', JSONReadyObjects);                    
                     }
                                                        
                  }
@@ -134,13 +131,7 @@
         };
     };
     
-
-    
     var ecoZaak = new EcoString(1, document.querySelector('#ecoString'));
     ecoZaak.loadData();
-    console.log(ecoZaak.toString());
-    
-    
- 
     
 })();

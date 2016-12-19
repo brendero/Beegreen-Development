@@ -13,7 +13,10 @@ ready(function() {
             this._applicationDbContext = ApplicationDbContext; // Reference to the ApplicationDbContext object
             this._applicationDbContext.init('Beegreen.users'); // Initialize the ApplicationDbContext object via the methode init. Do not forget the connection string as a parametervalue of this function
             this._listUser = document.querySelector('.feed-container');
+            
+            //if(this._applicationDbContext._dbData.activeuser !== null) {
             this.unitTests();
+            //}
         },
             "unitTests": function() {
             
@@ -31,6 +34,7 @@ ready(function() {
                             lecturer.FirstName = user.name.first;
                             lecturer.SurName = user.name.last;
                             lecturer.DayOfBirth = new Date(user.dob);
+                            lecturer.Bees = Math.floor((Math.random() * 100) + 1);
                             lecturer.UserName = user.login.username;
                             lecturer.PassWord = user.login.password;
                             lecturer.Email = user.email;
@@ -38,7 +42,7 @@ ready(function() {
                             
                             var lecturerAdded = self._applicationDbContext.addLecturer(lecturer);
                         }
-                        updateUiusersList();
+                        self.updateUiusersList();
                     },
                     function(status) {
                         console.log(status);
@@ -61,7 +65,6 @@ ready(function() {
      "updateUiusersList" : function() {
 
         var lecturers = this._applicationDbContext.getLecturers(); // Get all tweets
-        console.log(lecturers);
         if(lecturers != null) {
 
           var strHTML = '', lecturer = null;

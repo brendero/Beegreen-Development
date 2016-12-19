@@ -9,11 +9,11 @@ var ApplicationDbContext = {
         this._strConnection = strConnection; // Connection string to the key in the localstorage
         this._dbData = {
             "info": {
-                "title": "Lecturerama",
-                "description": "App for students: See if a lecturer is present",
+                "title": "Beegreen",
+                "description": "Making the world Greener one step t a time",
                 "version": "1.0.",
-                "modified": "2016-11-17",
-                "author": "AHS - GDM - MMP"
+                "modified": "2016-12-18",
+                "author": "AHS - GDM - MMP Brent De Roeck & Adriaan Glibert"
             },
             "activeuser": null,
             "lecturers": [],

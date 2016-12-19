@@ -36,7 +36,6 @@
 
                         var arrayOfObjects = [features];
                         
-                        console.log(arrayOfObjects);
 
                         for (var i = 0; i < arrayOfObjects.length; i++) { //Dus 7x deze loop doorlopen want 7 objecten
                             
@@ -93,7 +92,6 @@
     
     var electricCharger = new ElectricString(1, document.querySelector('#electricString'));
     electricCharger.loadData();
-    console.log(electricCharger.toString());
     
     
 })();

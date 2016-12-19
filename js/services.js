@@ -28,6 +28,14 @@ var ApplicationDbContext = {
             Utils.store(this._strConnection, this._dbData);
         }
     },
+     "getActiveUser": function() {
+         //get activeUser
+        var activeUser = this._dbData.activeuser;
+        if (activeUser == null || (activeUser != null && activeUser.length ==0)) {
+            return null;
+        }
+        return activeUser;
+    },
     "getLecturers": function() {
         // Get all lecturers
         var lecturers = this._dbData.lecturers;

@@ -11,11 +11,12 @@ layout: login
         </div>
         <div class="row login-buttons-container" >
             <div class=" col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 text-center">
-                <form>
+                <form id="frm-login">
                 <input type="text" id="txtUserName" name="txtUserName">
                 <label for="txtUserName">Username</label>
                 <input type="password" id="txtUserNamepassWord" name="txtPassWord">
-                <label for="txtPassWord">Password</label>                
+                <label for="txtPassWord">Password</label>
+                <button>login</button>                
                 </form>
                <!-- <span class="sign-up">Sign up</span> -->
             </div>

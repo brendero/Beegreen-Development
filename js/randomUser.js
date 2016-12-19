@@ -13,10 +13,44 @@ ready(function() {
             this._applicationDbContext = ApplicationDbContext; // Reference to the ApplicationDbContext object
             this._applicationDbContext.init('Beegreen.users'); // Initialize the ApplicationDbContext object via the methode init. Do not forget the connection string as a parametervalue of this function
             this._listUser = document.querySelector('.feed-container');
+            this._userCard = document.querySelector('.profile-card');
+            this._userManager = UserManager;
+            this._userManager.init(this._applicationDbContext);
+            this.updateUiusersList();
+
+
+            this._frmLogin = document.querySelector("#frm-login");
+            this.registerEventListeners();
+            this.updateActiveUser();
+
             
-            //if(this._applicationDbContext._dbData.activeuser !== null) {
             this.unitTests();
-            //}
+        },
+             "registerEventListeners": function() {
+
+            // Event Listeners for Form Login
+            if(this._frmLogin != null) {
+                var self = this; // Hack for this keyword within an event listener of another object
+
+                this._frmLogin.addEventListener('submit', function(ev) {
+                    ev.preventDefault();
+
+                    var userName = Utils.trim(this.querySelectorAll('[name="txtUserName"]')[0].value);
+                    var passWord = Utils.trim(this.querySelectorAll('[name="txtPassWord"]')[0].value);
+                    var result = self._userManager.login(userName, passWord);
+                    if(result == null) {
+
+                    } else if(result == false) {
+
+                    } else {
+                        self._activeUser = result; // User is Logged in
+                        self.unitTests();
+                    }
+                    
+                    return false;
+                });
+            }
+
         },
             "unitTests": function() {
             
@@ -42,7 +76,6 @@ ready(function() {
                             
                             var lecturerAdded = self._applicationDbContext.addLecturer(lecturer);
                         }
-                        self.updateUiusersList();
                     },
                     function(status) {
                         console.log(status);
@@ -85,6 +118,18 @@ ready(function() {
           }
           this._listUser.innerHTML = strHTML;
         }
+     },
+     "updateActiveUser": function() {
+         var activeUser = this._applicationDbContext.getActiveUser();
+         if (activeUser != null) {
+             var userHTML ='', user = null;
+
+             userHTML +='<h2><span class="bitter">'+ activeUser.FirstName+ " " +activeUser.SurName + '</span></h2>';
+             userHTML +='<p class="raleway">'+"Bees earned: "+'<span>'+ activeUser.Bees +'</span>'+'</p>';
+             userHTML +='<p class="raleway">'+"Trees planted: "+'<span>'+ "" +'</span>'+'</p>';
+             userHTML +='<p class="raleway">'+"Ranking: "+'<span>'+ "" +'</span>'+'</p>';
+        this._userCard.innerHTML = userHTML;
+         }
      }
     };
 

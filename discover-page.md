@@ -20,6 +20,7 @@ layout: default
 
 </script>
 
+
 <div class="info-container col-xs-12">
 <div class="inner-container">
 <div id="nearbyAndList">

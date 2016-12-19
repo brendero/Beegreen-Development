@@ -16,7 +16,7 @@ window.onLoad = init();
       }
 
       function onLocationFound(e) {
-         var radius = e.accuracy / 2;
+         var radius = 500;
          var location = e.latlng
          L.marker(location).addTo(map)
          L.circle(location, radius).addTo(map);
@@ -37,5 +37,6 @@ window.onLoad = init();
         var nearbyButton = document.querySelector('#nearby');
                   nearbyButton.addEventListener('click',function() {
           getLocationLeaflet();
+          
         });
           

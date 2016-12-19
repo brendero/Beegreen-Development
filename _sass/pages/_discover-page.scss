@@ -13,6 +13,13 @@
     margin: auto;
 }
 
+.inner-container a {
+  color: $black; }
+
+.inner-container a:hover {
+  color: $yellow; }
+
+
 .info-container {
     margin-bottom: 80px;
 }

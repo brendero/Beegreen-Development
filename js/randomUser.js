@@ -14,43 +14,11 @@ ready(function() {
             this._applicationDbContext.init('Beegreen.users'); // Initialize the ApplicationDbContext object via the methode init. Do not forget the connection string as a parametervalue of this function
             this._listUser = document.querySelector('.feed-container');
             this._userCard = document.querySelector('.profile-card');
-            this._userManager = UserManager;
-            this._userManager.init(this._applicationDbContext);
-
-            this._frmLogin = document.querySelector("#frm-login");
-            this.registerEventListeners();
-
+           
             if(this._applicationDbContext._dbData._activeUser !== null) {
                 this.updateActiveUser();
                 this.updateUiusersList();
             }
-        },
-             "registerEventListeners": function() {
-
-            // Event Listeners for Form Login
-            if(this._frmLogin != null) {
-                var self = this; // Hack for this keyword within an event listener of another object
-
-                this._frmLogin.addEventListener('submit', function(ev) {
-                    ev.preventDefault();
-
-                    var userName = Utils.trim(this.querySelectorAll('[name="txtUserName"]')[0].value);
-                    var passWord = Utils.trim(this.querySelectorAll('[name="txtPassWord"]')[0].value);
-                    var result = self._userManager.login(userName, passWord);
-                    if(result == null) {
-
-                    } else if(result == false) {
-
-                    } else {
-                        self._activeUser = result; // User is Logged in
-                        self.unitTests();
-                        window.location("profile-page.html");
-                    }
-                    
-                    return false;
-                });
-            }
-
         },
             "unitTests": function() {
             

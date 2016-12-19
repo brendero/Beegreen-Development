@@ -35,39 +35,57 @@
     
 
                         var arrayOfObjects = [features];
+                        
+                        
 
+                        
                         for (var i = 0; i < arrayOfObjects.length; i++) { //Dus 180x deze loop doorlopen want 180 objecten
-                            
-                            
+                          
                             
                             var object = arrayOfObjects[i];
-                            
                             object.id = [i];
                             
                             for(var x=0; x < object.length; x++){
                             
-                            var oneObject = object[x];
-                            var properties = oneObject.properties;
+                                var oneObject = object[x];
+                                oneObject.bees = Math.floor((Math.random() * 6) + 2);   
+
+                                var bees = oneObject.bees;    
+                                var properties = oneObject.properties;
+                                var geometry = oneObject.geometry;   
+                                var coordinates = geometry.coordinates;    
+
+                                var name = properties.NAAM;
+                                var category = properties.CATEGORIE;
                                 
+                                var nameAndBees = function (name, bees) {
+                                    
+                                   var oneItem = {
+                                        'productname': name, 
+                                        'bees': bees
+                                    };
+
+                                    localStorage.setItem('nameAndBees', JSON.stringify(oneItem));
+                                };
                                 
-                                         
-                            var name = properties.NAAM;
-                            var category = properties.CATEGORIE;
+                                nameAndBees(name, bees);
   
+                            
                                 
                                 
                             //ALS JE KLIKT OP 1 SPECIFIEK OBJECT WORDT DIENS INFO OPGESLAGEN IN LOCALSTORAGE
-
+                            
                            
                             var oneDiscoverItem = 
                                 
-                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  2 + ' bees' + '</span></div></div></a>';
+                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  bees + ' bees' + '</span></div></div></a>';
                                 
                             
 
                             var activity = document.createElement('li');
                             activity.innerHTML = oneDiscoverItem;    
-                            activity.id = [x];    
+                            activity.id = [x];   
+                            activity.setAttribute("data-latlon", coordinates);    
                             var innerContainer = document.getElementById('innerContainer');    
                             innerContainer.appendChild(activity);
                
@@ -75,7 +93,8 @@
                                 document.getElementById('nearbyAndList').style.display = "none";
                                 
                                 var clickedItem = object[this.id];
-                                var properties = clickedItem.properties;       
+                                var properties = clickedItem.properties;  
+                               
                                 var name = properties.NAAM;
                                 var city = properties.GEMEENTE;
                                 var street = properties.STRAAT;
@@ -84,9 +103,10 @@
                                 var website = properties.WEBADRES;
                                 var category = properties.CATEGORIE;
                                 var label = properties.LABEL;
-                                var notes = properties.opmerkingen; 
+                                var notes = properties.opmerkingen;
                                 
-                                var moreInfoExplanation = 'You can find ' + name + ' in ' + city + ' at ' + street + ' ' + streetnumber + '<br><br>You can contact them by calling or visiting their website:<br>' + telophone + '<br>' + website + '<br><br>' + 'More info: <br> Category: ' + category + '<br> Label: ' + label + '<br> Note: ' + notes + '<br><br> <a href="discover-page.html">Go back</a>'; 
+                                
+                                var moreInfoExplanation = 'You can find ' + name + ' in ' + city + ' at ' + street + ' ' + streetnumber + '<br><br>You can contact them by calling or visiting their website:<br>' + telophone + '<br>' + website + '<br><br>' + 'More info: <br> Category: ' + category + '<br> Label: ' + label + '<br> Note: ' + notes + '<br><br> <strong><a href="discover-page.html" id="checkIn">Check in here!</a><br><a href="discover-page.html">Go back</a></strong>'; 
                                 
                                 var moreInfoTitle = document.createElement('h1');
                                 var moreInfoDescription = document.createElement('p');
@@ -96,14 +116,41 @@
                                 moreInfoContainer.appendChild(moreInfoTitle);
                                 moreInfoContainer.appendChild(moreInfoDescription);
                                 
-                            }    
-                            
-                            
-                            
+                                var addItem = function (name, bees, image) {
+                                    
+                                    var oldItems = JSON.parse(localStorage.getItem('addToProfile')) || [];
+
+                                    var newItem = {
+                                        'productname': name, 
+                                        'bees': bees,
+                                        'image': image
+                                    };
+
+                                    oldItems.push(newItem);
+
+                                    localStorage.setItem('addToProfile', JSON.stringify(oldItems));
+                                };
+                                
+                                var checkInButton = document.getElementById('checkIn');
+                                checkInButton.onclick = function(){
+                                    
+                                    
+                                     addItem(name, bees, category);
+                                    
+//                                    var JSONReadyInfo = JSON.stringify(name);
+//                                    localStorage.setItem('addToProfile', JSONReadyInfo);
+                                    
+                                    
+                                    }
+                                }
                             }    
          
-                            var JSONReadyObjects = JSON.stringify(arrayOfObjects);
-                            localStorage.setItem('objects', JSONReadyObjects);                    
+                        
+                        
+                            
+                        var JSONReadyObjects = JSON.stringify(arrayOfObjects);
+                        localStorage.setItem('objects', JSONReadyObjects);                         //console.log(JSON.parse(localStorage['objects']));  
+
                     }
                                                        
                  }
@@ -131,7 +178,13 @@
         };
     };
     
+
+    
     var ecoZaak = new EcoString(1, document.querySelector('#ecoString'));
     ecoZaak.loadData();
+    console.log(ecoZaak.toString());
+    
+    
+ 
     
 })();

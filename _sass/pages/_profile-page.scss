@@ -27,7 +27,7 @@
 /*CONTENT CODE*/
 
 
-.inner-container {
+#inner-container {
   width: 80%;
   height: auto;
   margin: 0 auto; 
@@ -35,10 +35,10 @@
 }
  
 
-.inner-container a {
+#inner-container a {
   color: $black; }
 
-.inner-container a:hover {
+#inner-container a:hover {
   color: $yellow; }
 
 

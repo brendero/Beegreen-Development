@@ -2,8 +2,7 @@
     
      var profilePageContent = localStorage.getItem('addToProfile');
      var arrayOfActivity = JSON.parse(profilePageContent);
-    
-    console.log(arrayOfActivity);
+
      
      for(i = 0; i < arrayOfActivity.length; i++){
          
@@ -12,6 +11,7 @@
      var activity = document.createElement('li');
      activity.innerHTML = oneActivityItem;    
      activity.id = [i];   
+     activity.className += "animated zoomIn";       
      var innerContainer = document.getElementById('inner-container');    
      innerContainer.appendChild(activity);
      }

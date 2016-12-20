@@ -57,6 +57,7 @@
 
                             var activity = document.createElement('div');
                             activity.innerHTML = oneDiscoverItem;    
+                            activity.className += "animated zoomIn";      
                             var innerContainer = document.getElementById('innerContainer');    
                             innerContainer.appendChild(activity);
                                 

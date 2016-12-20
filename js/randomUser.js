@@ -71,7 +71,7 @@ ready(function() {
           var strHTML = '', lecturer = null;
           for(var i=0; i < 30;i++) {
             lecturer = lecturers[i];
-            strHTML += '<a>';
+            strHTML += '<a class="animated zoomIn">';
             strHTML += '<div class="items-container">';
             strHTML += '<div class="imagecontainer">';
             strHTML += '<img class="square-picture" src="'+ lecturer.Picture +'">';

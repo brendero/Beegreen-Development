@@ -31,12 +31,13 @@ ready(function() {
                     function(data) {
                         var users = data.results, lecturer = null, user = null;
                         for(var i=0;i<users.length;i++) {
+                            
                             user = users[i];
                             lecturer = new Lecturer();
                             lecturer.FirstName = user.name.first;
                             lecturer.SurName = user.name.last;
                             lecturer.DayOfBirth = new Date(user.dob);
-                            lecturer.Bees = Math.floor((Math.random() * 100) + 1);
+                            lecturer.Bees = user.Bees;
                             lecturer.UserName = user.login.username;
                             lecturer.PassWord = user.login.password;
                             lecturer.Email = user.email;
@@ -67,19 +68,28 @@ ready(function() {
 
         var lecturers = this._applicationDbContext.getLecturers(); // Get all tweets
         if(lecturers != null) {
+            
+              
 
+              
+            
           var strHTML = '', lecturer = null;
           for(var i=0; i < 30;i++) {
+            
+            var randomNumber = Math.floor((Math.random() * 179) + 0);
+            var discoverItemLocalStorage = localStorage.getItem('nameAndBees');
+            var discoverItem = JSON.parse(discoverItemLocalStorage);  
+              
             lecturer = lecturers[i];
-            strHTML += '<a>';
+            strHTML += '<a class="animated zoomIn">';
             strHTML += '<div class="items-container">';
             strHTML += '<div class="imagecontainer">';
             strHTML += '<img class="square-picture" src="'+ lecturer.Picture +'">';
             strHTML += '</div>';
             strHTML += '<div class="text-content">';
             strHTML += '<h4 class="bitter friend-name">'+ lecturer.FirstName+ " " +lecturer.SurName+'</h4>';
-            strHTML += '<span class="raleway">'+ "Walked in Zuidpark"+'</span><br>'
-            strHTML += '<span class="raleway">'+ "Recieved 4 Bees"+'</span>'
+            strHTML += '<span class="raleway">'+ "Went to " + discoverItem[randomNumber].Name +'</span><br>'
+            strHTML += '<span class="raleway">'+ "Recieved " + discoverItem[randomNumber].Bees + " Bees"+'</span>'
             strHTML += '</div>';
             strHTML += '</div>';
             strHTML += '</a>';
@@ -91,11 +101,13 @@ ready(function() {
          var activeUser = this._applicationDbContext.getActiveUser();
          if (activeUser != null) {
              var userHTML ='', user = null;
-
+             var currentTotalBees = JSON.parse(localStorage.getItem("currentTotalBees"));
+             var profileInfo = JSON.parse(localStorage.getItem("profileInfo"));
+             
              userHTML +='<h2><span class="bitter">'+ activeUser.FirstName+ " " +activeUser.SurName + '</span></h2>';
-             userHTML +='<p class="raleway">'+"Bees earned: "+'<span>'+ activeUser.Bees +'</span>'+'</p>';
-             userHTML +='<p class="raleway">'+"Trees planted: "+'<span>'+ "" +'</span>'+'</p>';
-             userHTML +='<p class="raleway">'+"Ranking: "+'<span>'+ "" +'</span>'+'</p>';
+             userHTML +='<p class="raleway">'+"Bees earned: "+'<span>'+ currentTotalBees +'</span>'+'</p>';
+             userHTML +='<p class="raleway">'+"Trees planted: "+'<span>'+ profileInfo.plantedTrees +'</span>'+'</p>';
+             userHTML +='<p class="raleway">'+"Ranking: "+'<span>'+ profileInfo.ranking +'</span>'+'</p>';
         this._userCard.innerHTML = userHTML;
          }
      }

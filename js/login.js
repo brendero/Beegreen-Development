@@ -81,7 +81,7 @@ var App = {
                     } else {
                         self._activeUser = result; // User is Logged in
                         self.unitTests();
-                        window.location.assign("./profile-page.html");
+                        window.location.assign("./discover-page.html");
                     }
                     
                     return false;

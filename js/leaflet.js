@@ -2,6 +2,10 @@ window.onLoad = init();
 
  var map;
 
+Number.prototype.toRad = function () {  
+	return this * Math.PI/180; 
+};
+
       function init() {
           
          map = new L.Map('mapid');
@@ -17,11 +21,27 @@ window.onLoad = init();
 
       function onLocationFound(e) {
          var radius = 500;
-         var location = e.latlng
-         L.marker(location).addTo(map)
+         var radiusKM = radius/1000;
+         var location = e.latlng;
+         L.marker(location).addTo(map);
          L.circle(location, radius).addTo(map);
-      }
 
+            for(var i =0; i<=180; i++) {
+              var items = document.getElementById(i);
+              var coordinates =items.getAttribute("data-latlon");
+
+              var longlat = coordinates.split(",");
+              var lat = longlat[1];
+              var long = longlat[0];  
+
+              var distance = Utils.calculateDistanceBetweenTwoCoordinates(lat,long,location.lat,location.lng);
+              if(distance <= radiusKM){
+               }
+               else {
+                 items.style.display = "none";
+               }
+            }  
+      }
       function onLocationError(e) {
          alert(e.message);
       }
@@ -33,10 +53,9 @@ window.onLoad = init();
          map.locate({setView: true, maxZoom: 15});
       }
 
-         
+        
         var nearbyButton = document.querySelector('#nearby');
                   nearbyButton.addEventListener('click',function() {
           getLocationLeaflet();
-          
         });
           

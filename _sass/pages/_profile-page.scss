@@ -76,15 +76,19 @@
 @media(max-width: 700px){
     
     
-    .progressbar {
+    .progressbar{
        position: relative;
        top: 25px;  
        width: 90%;    
        margin: auto;
-        padding-right: 7px;
-    
+        padding-right: 7px;    
+        background-color: white;
+        border-radius: 10px;  
 
     }
+
+    
+    
       
 }
 
@@ -98,7 +102,8 @@
         float: right;
        margin: auto;
         padding-right: 10%;
-
+     background-color: white;
+        border-radius: 10px;
 
     }
       

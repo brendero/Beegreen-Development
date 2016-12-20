@@ -58,33 +58,40 @@
                                 var name = properties.NAAM;
                                 var category = properties.CATEGORIE;
                                 
-                                var nameAndBees = function (name, bees) {
+                                
+                                
+                            var nameAndBees = function (name, bees, id) {
                                     
-                                   var oneItem = {
-                                        'productname': name, 
-                                        'bees': bees
+                                   var oldDiscoverItem = JSON.parse(localStorage.getItem('nameAndBees')) || [];
+                                
+                                   var DiscoverItem = {
+                                        'Name': name, 
+                                        'Bees': bees,
+                                        'ID' : id
                                     };
 
-                                    localStorage.setItem('nameAndBees', JSON.stringify(oneItem));
+                                    oldDiscoverItem.push(DiscoverItem);
+
+                                    localStorage.setItem('nameAndBees', JSON.stringify(oldDiscoverItem));
                                 };
-                                
-                                nameAndBees(name, bees);
-  
-                            
-                                
-                                
-                            //ALS JE KLIKT OP 1 SPECIFIEK OBJECT WORDT DIENS INFO OPGESLAGEN IN LOCALSTORAGE
-                            
+                               
+
+                           nameAndBees(name, bees, x);
+
+                           var discoverItemLocalStorage = localStorage.getItem('nameAndBees');
+                           var discoverItem = JSON.parse(discoverItemLocalStorage);        
                            
+                                
                             var oneDiscoverItem = 
                                 
-                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  bees + ' bees' + '</span></div></div></a>';
+                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + discoverItem[x].Name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  discoverItem[x].Bees + ' bees' + '</span></div></div></a>';
                                 
                             
 
                             var activity = document.createElement('li');
                             activity.innerHTML = oneDiscoverItem;    
-                            activity.id = [x];   
+                            activity.id = [x];
+                            activity.className += "animated zoomIn";  
                             activity.setAttribute("data-latlon", coordinates);    
                             var innerContainer = document.getElementById('innerContainer');    
                             innerContainer.appendChild(activity);
@@ -93,6 +100,8 @@
                                 document.getElementById('nearbyAndList').style.display = "none";
                                 
                                 var clickedItem = object[this.id];
+                                
+                                
                                 var properties = clickedItem.properties;  
                                
                                 var name = properties.NAAM;
@@ -104,9 +113,11 @@
                                 var category = properties.CATEGORIE;
                                 var label = properties.LABEL;
                                 var notes = properties.opmerkingen;
+                                var beesFromArray = discoverItem[this.id].Bees;
                                 
+                                    
                                 
-                                var moreInfoExplanation = 'You can find ' + name + ' in ' + city + ' at ' + street + ' ' + streetnumber + '<br><br>You can contact them by calling or visiting their website:<br>' + telophone + '<br>' + website + '<br><br>' + 'More info: <br> Category: ' + category + '<br> Label: ' + label + '<br> Note: ' + notes + '<br><br> <strong><a href="discover-page.html" id="checkIn">Check in here!</a><br><a href="discover-page.html">Go back</a></strong>'; 
+                                var moreInfoExplanation = 'You can find ' + name + ' in ' + city + ' at ' + street + ' ' + streetnumber + '<br><br>You can contact them by calling or visiting their website:<br>' + telophone + '<br>' + website + '<br><br>' + 'More info: <br> Category: ' + category + '<br> Label: ' + label + '<br> Note: ' + beesFromArray + '<br><br> <strong><a href="discover-page.html" id="checkIn">Check in here!</a><br><a href="discover-page.html">Go back</a></strong>'; 
                                 
                                 var moreInfoTitle = document.createElement('h1');
                                 var moreInfoDescription = document.createElement('p');
@@ -131,15 +142,14 @@
                                     localStorage.setItem('addToProfile', JSON.stringify(oldItems));
                                 };
                                 
+                                
+                                
                                 var checkInButton = document.getElementById('checkIn');
                                 checkInButton.onclick = function(){
                                     
-                                    
-                                     addItem(name, bees, category);
-                                    
-//                                    var JSONReadyInfo = JSON.stringify(name);
-//                                    localStorage.setItem('addToProfile', JSONReadyInfo);
-                                    
+                                                
+                                     addItem(name, beesFromArray, category);
+                                                                
                                     
                                     }
                                 }

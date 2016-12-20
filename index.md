@@ -10,12 +10,12 @@ layout: login
             </div>
         </div>
         <div class="row login-buttons-container" >
-            <div class=" col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 text-center">
                 <form id="frm-login">
-                <input type="text" id="txtUserName" name="txtUserName">
-                <label for="txtUserName">Username</label>
-                <input type="password" id="txtUserNamepassWord" name="txtPassWord">
+                <h2 class="raleway">Login with facebook</h2>
+                <label for="txtUserName" class="col-xs-12">Username</label>
+                <input type="text" id="txtUserName" name="txtUserName"><br>
                 <label for="txtPassWord">Password</label>
+                <input type="password" id="txtUserNamepassWord" name="txtPassWord">
                 <button>login</button>                
                 </form>
                <!-- <span class="sign-up">Sign up</span> -->

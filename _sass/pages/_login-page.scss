@@ -20,24 +20,30 @@
     top: 150px;
     padding: 20px; 
     padding-bottom: 50px;
+    width: 20%;
+    margin: auto;
+    text-align: center;
 }
-
-
-.fb-login,
-.google-login {
-    padding: 15px 20px;
-    margin: 15px 0px;
-    
-    background-color: $blue;
+.login-buttons-container input {
+    width:100%;
+}
+.login-buttons-container button {
+    margin:10px;
+    border:2px solid $yellow;
     font-family: $bitter;
     font-weight: bold;
+    color:rgba(10,10,10,0.3);
+}
+.login-buttons-container button:hover {
+    background: $yellow;
     color: $white;
+    transition: 0.5s;
 }
 
-.google-login {
-    background-color: $red;
-}
-
-.sign-up {
-    font-family: $raleway;
+@media(max-width: 700px){
+    .login-buttons-container {
+        width:50%;
+    }
+    
+      
 }

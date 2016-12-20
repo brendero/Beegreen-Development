@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var currentTotalBees = JSON.parse(localStorage.getItem("currentTotalBees"));
 
 if(currentTotalBees < 100){
@@ -25,6 +26,10 @@ if(currentTotalBees < 100){
     
     
 var progress =  progressPercentage + "%";
+=======
+
+var progress = 20 + "%";
+>>>>>>> b2eab1d566e06f9a547871645475da98671d6e11
 
 function progressbar() {
   var indicator = document.querySelector(".progressbar-indicator");

@@ -46,14 +46,45 @@ Number.prototype.toRad = function () {
          alert(e.message);
       }
 
+      function calculateDistanceBetweenTwoCoordinates(lat1, lng1, lat2, lng2){
+        var R = 6371; // km
+        var lat1 = parseFloat(lat1);
+        var lng1 = parseFloat(lng1);
+        var lat2 = parseFloat(lat2);
+        var lng2 = parseFloat(lng2);
+
+        var dLat = (lat2-lat1).toRad();
+        var dLon = (lng2-lng1).toRad();
+        var lat1 = lat1.toRad();
+        var lat2 = lat2.toRad();
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c
+        return d;//in km
+    }
+
       function getLocationLeaflet() {
          map.on('locationfound', onLocationFound);
          map.on('locationerror', onLocationError);
 
          map.locate({setView: true, maxZoom: 15});
       }
+      
+      function showMarkersInRadius() {
+        for() {
+          calculateDistanceBetweenTwoCoordinates();
+          if(d <= radius) {
 
+<<<<<<< HEAD
         
+=======
+          }
+        }
+      }
+         
+>>>>>>> b2eab1d566e06f9a547871645475da98671d6e11
         var nearbyButton = document.querySelector('#nearby');
                   nearbyButton.addEventListener('click',function() {
           getLocationLeaflet();

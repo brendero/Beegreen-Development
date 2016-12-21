@@ -3,7 +3,7 @@
     
     //EcoString Object maken
     function EcoString(id, ecoClass){
-        
+        console.log("ecoplan");
         this.API_URL = 'https://datatank.stad.gent/4/milieuennatuur/ecoplan.geojson';
         
         this.id = id;
@@ -27,7 +27,7 @@
                     
                     //==200 wilt zeggen dat er een succesvol request is gebeurd.
                     if(xhr.status == 200) {
-                        
+                        console.log("jSON");
                         //Boolean, als waar JSON.parse() en als niet waar XHR.Response.
                         var data = (!xhr.responseType)?JSON.parse(xhr.response):xhr.response;
                         
@@ -191,7 +191,6 @@
     
     var ecoZaak = new EcoString(1, document.querySelector('#ecoString'));
     ecoZaak.loadData();
-    console.log(ecoZaak.toString());
     
     
  

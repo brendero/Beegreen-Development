@@ -7,7 +7,7 @@ Number.prototype.toRad = function () {
 };
 
       function init() {
-          
+        console.log("JSON");
          map = new L.Map('mapid');
          L.tileLayer('https://api.mapbox.com/styles/v1/adriglib/ciwlv3jbb00062qmvav4g95i4/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWRyaWdsaWIiLCJhIjoiY2l3bHVxYm1wMDAwMjJ0bnE2MWp3azhmdiJ9.E3Udm-vhUj4CEWJuCC_big', {
             attribution: '&copy; BeeGreen',

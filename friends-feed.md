@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: friends
 ---
 
 <div class="container-fluid main-container">

@@ -68,7 +68,6 @@
               
         };
         
-        console.log(profileInfo);
         localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
    
     }

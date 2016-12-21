@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: profile
 ---
 
 <!-- Tree decoration -->

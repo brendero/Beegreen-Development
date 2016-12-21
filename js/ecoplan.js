@@ -100,12 +100,7 @@
                                 document.getElementById('nearbyAndList').style.display = "none";
                                 
                                 var clickedItem = object[this.id];
-                                
-                                
-<<<<<<< HEAD
-=======
-                                
->>>>>>> b2eab1d566e06f9a547871645475da98671d6e11
+                            
                                 var properties = clickedItem.properties;  
                                
                                 var name = properties.NAAM;

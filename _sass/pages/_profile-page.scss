@@ -69,6 +69,7 @@
 
 .progressbar-indicator {
   height: 20px;
+  border-radius: 10px;
   background-color: $yellow;
 }
 
@@ -101,16 +102,11 @@
        width: 55%;
         float: right;
        margin: auto;
-<<<<<<< HEAD
         margin-right: 10%;
      background-color: white;
         border-radius: 10px;
-=======
        padding: 1px;
         margin-right: 10%;
-
->>>>>>> b2eab1d566e06f9a547871645475da98671d6e11
-
     }
       
 }

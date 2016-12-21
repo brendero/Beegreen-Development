@@ -71,20 +71,7 @@ Number.prototype.toRad = function () {
 
          map.locate({setView: true, maxZoom: 15});
       }
-      
-      function showMarkersInRadius() {
-        for() {
-          calculateDistanceBetweenTwoCoordinates();
-          if(d <= radius) {
-
-<<<<<<< HEAD
-        
-=======
-          }
-        }
-      }
          
->>>>>>> b2eab1d566e06f9a547871645475da98671d6e11
         var nearbyButton = document.querySelector('#nearby');
                   nearbyButton.addEventListener('click',function() {
           getLocationLeaflet();

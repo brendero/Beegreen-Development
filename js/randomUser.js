@@ -47,7 +47,6 @@ ready(function() {
                         }
                     },
                     function(status) {
-                        console.log(status);
                     }
                 );
 
@@ -59,7 +58,6 @@ ready(function() {
                 if(lecturer != null) {
                     lecturer.FirstName = 'Olivia';
                     var result = this._applicationDbContext.updateLecturer(lecturer);
-                    console.log(result);
                 }
             }
         },

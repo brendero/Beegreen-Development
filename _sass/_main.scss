@@ -3,8 +3,8 @@
 @import 'abstracts/mixins';
 
 @import 'vendor/normalize';
-@import 'vendor/bootstrap-grid';
-@import 'vendor/bootstrap-glyphicons';
+/*@import 'vendor/bootstrap-grid';
+@import 'vendor/bootstrap-glyphicons';*/
 
 @import 'base/base.scss';
 @import 'base/typography.scss';
@@ -15,8 +15,8 @@
 
 @import 'components/button';
 
-@import 'vendor/bootstrap-grid';
-@import 'vendor/bootstrap-glyphicons';
+/*@import 'vendor/bootstrap-grid';
+@import 'vendor/bootstrap-glyphicons';*/
 
 @import 'pages/discover-page';
 @import 'pages/friends-feed';

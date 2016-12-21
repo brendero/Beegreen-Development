@@ -3,7 +3,7 @@
     
     //EcoString Object maken
     function EcoString(id, ecoClass){
-        console.log("ecoplan");
+        
         this.API_URL = 'https://datatank.stad.gent/4/milieuennatuur/ecoplan.geojson';
         
         this.id = id;
@@ -27,7 +27,7 @@
                     
                     //==200 wilt zeggen dat er een succesvol request is gebeurd.
                     if(xhr.status == 200) {
-                        console.log("jSON");
+                        
                         //Boolean, als waar JSON.parse() en als niet waar XHR.Response.
                         var data = (!xhr.responseType)?JSON.parse(xhr.response):xhr.response;
                         
@@ -35,6 +35,8 @@
     
 
                         var arrayOfObjects = [features];
+                        var oldDiscoverItem = [];
+
                         
                         
 
@@ -57,12 +59,13 @@
 
                                 var name = properties.NAAM;
                                 var category = properties.CATEGORIE;
-                                
+                                if(!category) {
+                                    category = "Beauty";
+                                }
                                 
                                 
                             var nameAndBees = function (name, bees, id) {
                                     
-                                   var oldDiscoverItem = JSON.parse(localStorage.getItem('nameAndBees')) || [];
                                 
                                    var DiscoverItem = {
                                         'Name': name, 
@@ -70,21 +73,16 @@
                                         'ID' : id
                                     };
 
-                                    oldDiscoverItem.push(DiscoverItem);
+                                        oldDiscoverItem.push(DiscoverItem);
 
-                                    localStorage.setItem('nameAndBees', JSON.stringify(oldDiscoverItem));
                                 };
                                
 
-                           nameAndBees(name, bees, x);
-
-                           var discoverItemLocalStorage = localStorage.getItem('nameAndBees');
-                           var discoverItem = JSON.parse(discoverItemLocalStorage);        
-                           
+                           nameAndBees(name, bees, x);                           
                                 
                             var oneDiscoverItem = 
                                 
-                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + discoverItem[x].Name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  discoverItem[x].Bees + ' bees' + '</span></div></div></a>';
+                            '<a href="#"><div class="col-xs-12 col-sm-6 discover-items"><div class="imagecontainer"><img class="square-picture"  src="images/activity-images/' + category + '.jpg"></div><div class="text-content height-content"><h4 class="bitter main-title">' + oldDiscoverItem[x].Name + '</h4><span  class="raleway">' + 'Go to an ecopoint' + '</span><br><span  class="raleway">' + 'and recieve ' +  oldDiscoverItem[x].Bees + ' bees' + '</span></div></div></a>';
                                 
                             
 
@@ -112,7 +110,7 @@
                                 var category = properties.CATEGORIE;
                                 var label = properties.LABEL;
                                 var notes = properties.opmerkingen;
-                                var beesFromArray = discoverItem[this.id].Bees;
+                                var beesFromArray = oldDiscoverItem[this.id].Bees;
                                 
                                     
                                 
@@ -154,14 +152,12 @@
                                 }
                             }    
          
-                        
-                        
-                            
-                        var JSONReadyObjects = JSON.stringify(arrayOfObjects);
-                        localStorage.setItem('objects', JSONReadyObjects);                         //console.log(JSON.parse(localStorage['objects']));  
+                                              //console.log(JSON.parse(localStorage['objects']));  
 
                     }
-                                                       
+                        localStorage.setItem('nameAndBees', JSON.stringify(oldDiscoverItem));
+                        var JSONReadyObjects = JSON.stringify(arrayOfObjects);
+                        localStorage.setItem('objects', JSONReadyObjects);                    
                  }
                     else {
                         window.alert("Couldn't connect with API");

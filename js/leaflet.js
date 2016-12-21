@@ -7,14 +7,12 @@ Number.prototype.toRad = function () {
 };
 
       function init() {
-        console.log("JSON");
          map = new L.Map('mapid');
          L.tileLayer('https://api.mapbox.com/styles/v1/adriglib/ciwlv3jbb00062qmvav4g95i4/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWRyaWdsaWIiLCJhIjoiY2l3bHVxYm1wMDAwMjJ0bnE2MWp3azhmdiJ9.E3Udm-vhUj4CEWJuCC_big', {
             attribution: '&copy; BeeGreen',
             maxZoom: 18
          }).addTo(map);
          map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
-
          // map view before we get the location
           map.setView(new L.LatLng(51.0543, 3.7174), 13);
       }
